@@ -18,8 +18,34 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		// $this->load->view('welcome_message');
+		$this->load->helper('form');
+		$data["title"] = "Welcome to our Site";
+		$data["headline"] = "Welcome!";
+		$data["include"] = "home";
+		$this->load->vars($data);
+		$this->load->view("template");
+	}
+
+	public function contact(){
+		$this->load->helper("url");
+		if ($this->input->post("email")) {
+			$this->load->model("MContacts","",TRUE);
+			$this->MContacts->addContact();
+			redirect("welcome/thankyou","refresh");
+		}else {
+			redirect("welcome/index","refresh");
+		}
+	}
+
+	public function thankyou(){
+		$data["title"]="Thank You!";
+		$data["headline"]="Thanks!";
+		$data["include"]="thanks";
+		$this->load->vars($data);
+		$this->load->view("template");
 	}
 }
