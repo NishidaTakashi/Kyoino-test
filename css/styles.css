@@ -1,0 +1,12 @@
+.container{
+  text-align: center;
+}
+
+.database,.database th,.database td{
+  border: 1px #000000 solid;
+  border-collapse: collapse;
+}
+
+table{
+  display: inline-block;
+}
