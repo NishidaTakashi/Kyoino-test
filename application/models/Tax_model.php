@@ -14,7 +14,7 @@ class Tax_model extends CI_Model{
     return $query->result_array();
   }
 
-  function insert_entry(){
+  function insert(){
     $this->start=$_POST["start"];
     $this->rate=$_POST["rate"];
     $this->db->insert("tax",$this);
