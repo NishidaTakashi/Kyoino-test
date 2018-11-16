@@ -33,7 +33,7 @@ class Welcome extends CI_Controller {
 	public function contact(){
 		$this->load->helper("url");
 		if ($this->input->post("email")) {
-			$this->load->model("MContacts","",TRUE);
+			$this->load->model("Mcontacts","",TRUE);
 			$this->MContacts->addContact();
 			redirect("welcome/thankyou","refresh");
 		}else {

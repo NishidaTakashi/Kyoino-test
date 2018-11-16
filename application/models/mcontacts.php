@@ -2,9 +2,9 @@
 /**
  *
  */
-class MContacts extends Model{
+class Mcontacts extends Model{
 
-  function MContacts(){
+  function Mcontacts(){
     parent::Model();
   }
 
