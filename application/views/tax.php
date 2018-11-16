@@ -24,9 +24,10 @@
             </td>
             <td>
               <!-- 機能１－－delete -->
-              <?php echo form_open("tax/delete"); ?>
+              <?php echo anchor("tax/delete/".$tax["id"],"削除"); ?>
+              <!-- <?php echo form_open("tax/delete"); ?>
                 <input type="submit" name="" value="削除">
-              </form>
+              </form> -->
             </td>
         </tr>
       <?php endforeach; ?>

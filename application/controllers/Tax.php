@@ -30,4 +30,17 @@ class Tax extends CI_Controller {
 		$data["taxes"]=$this->Tax_model->get_tax();
 		$this->load->view("tax",$data);
 	}
+
+	public function insert(){
+		$this->Tax_model->insert($_POST);
+		redirect("tax","refresh");
+	}
+
+	public function delete()
+{
+	$id = $this->uri->segment(3);
+	$this->Tax_model->delete($id);
+	redirect('tax','refresh');
+}
+
 }
