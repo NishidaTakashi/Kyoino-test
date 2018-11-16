@@ -24,7 +24,9 @@
             </td>
             <td>
               <!-- 機能１－－delete -->
-              削除
+              <?php echo form_open("tax/delete"); ?>
+                <input type="submit" name="" value="削除">
+              </form>
             </td>
         </tr>
       <?php endforeach; ?>
@@ -32,10 +34,10 @@
 
       <h3>消費税設定の新規登録</h3>
       <!-- 機能２－－insert -->
-      <form class="" action="" method="post">
+      <?php echo form_open("tax/insert"); ?>
         <td>
-          <input type="text" name="" value="">
-          <input type="text" name="" value="">
+          <input type="tel" name="start" size="10" maxlength="10" pattern="\d{4}-\d{2}-\d{2}" placeholder="西暦-月-日">
+          <input type="number" name="rate" placeholder="税率（整数）を入力">%
           <input type="submit" name="" value="登録">
         </td>
       </form>
@@ -44,12 +46,12 @@
       <!-- 機能３－－select -->
       <table>
         <tr>
-          <form class="" action="" method="post">
+          <?php echo form_open("tax/select"); ?>
             <td>
-              <input type="text" name="" value="">
+              <input type="tel" name="started" size="10" maxlength="10" pattern="\d{4}-\d{2}-\d{2}" placeholder="西暦-月-日">
             </td>
             <td>
-              <input type="text" name="" value="">
+              <input type="number" name="money" placeholder="金額を入力"> 円
             </td>
             <td>
               <input type="submit" name="" value="計算">
