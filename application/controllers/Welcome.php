@@ -34,7 +34,7 @@ class Welcome extends CI_Controller {
 		$this->load->helper("url");
 		if ($this->input->post("email")) {
 			$this->load->model("Mcontacts","",TRUE);
-			$this->MContacts->addContact();
+			$this->Mcontacts->addContact();
 			redirect("welcome/thankyou","refresh");
 		}else {
 			redirect("welcome/index","refresh");
@@ -42,6 +42,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function thankyou(){
+		$this->load->helper('form');
 		$data["title"]="Thank You!";
 		$data["headline"]="Thanks!";
 		$data["include"]="thanks";
