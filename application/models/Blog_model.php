@@ -39,7 +39,7 @@ class Blog_model extends CI_Model{
   function delete_entry($id){
     // $this->id=$_POST["id"];
     $this->db->where("id",$id);
-    $this->db->delete("blog_data",$this);
+    $this->db->delete("blog_data");
     // $this->get_blog_all();
   }
 
