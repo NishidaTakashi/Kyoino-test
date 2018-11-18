@@ -35,12 +35,11 @@ class Tax extends CI_Controller {
 		$this->Tax_model->insert($_POST);
 		redirect("tax","refresh");
 	}
-
-	public function delete()
-{
+  
+	public function delete(){
 	$id = $this->uri->segment(3);
 	$this->Tax_model->delete($id);
 	redirect('tax','refresh');
-}
+　}
 
 }

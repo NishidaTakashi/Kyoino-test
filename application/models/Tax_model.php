@@ -20,6 +20,7 @@ class Tax_model extends CI_Model{
     $this->db->insert("tax",$this);
   }
 
+
   public function select($id){
     $this->db->where("id",$id);
     $query=$this->db->get("tax");
