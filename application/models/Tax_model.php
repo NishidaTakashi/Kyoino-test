@@ -20,13 +20,14 @@ class Tax_model extends CI_Model{
     $this->db->insert("tax",$this);
   }
 
-  public function get_blog($id){
+
+  public function select($id){
     $this->db->where("id",$id);
     $query=$this->db->get("tax");
     return $query->row_array();
   }
 
-  public function delete_entry($id){
+  public function delete($id){
     // $this->id=$_POST["id"];
     $this->db->where("id",$id);
     $this->db->delete("tax");
