@@ -21,17 +21,19 @@ class Tax_model extends CI_Model{
   }
 
 
-  public function select($id){
-    $this->db->where("id",$id);
-    $query=$this->db->get("tax");
+  public function select(){
+    $started=$_POST["started"];
+    $money=$_POST["money"];
+    $query=$this->db->query("select rate*{$money}/100+{$money} as tax_money from tax
+                                 where start <= '{$started}'
+                                 order by start DESC
+                                 limit 1");
     return $query->row_array();
   }
 
   public function delete($id){
-    // $this->id=$_POST["id"];
     $this->db->where("id",$id);
     $this->db->delete("tax");
-    // $this->get_blog_all();
   }
 
 }
