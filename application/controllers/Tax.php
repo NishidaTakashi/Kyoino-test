@@ -43,9 +43,9 @@ class Tax extends CI_Controller {
 	}
 
 	public function delete(){
-	$id = $this->uri->segment(3);
-	$this->Tax_model->delete($id);
-	redirect('tax','refresh');
+		$id = $_POST["id"];
+		$this->Tax_model->delete($id);
+		redirect('tax','refresh');
 	}
 
 	public function select(){

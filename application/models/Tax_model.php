@@ -10,6 +10,7 @@ class Tax_model extends CI_Model{
   }
 
   public function get_tax(){
+    $this->db->order_by("start","ASC");
     $query=$this->db->get("tax");
     return $query->result_array();
   }
@@ -19,7 +20,6 @@ class Tax_model extends CI_Model{
     $this->rate=$_POST["rate"];
     $this->db->insert("tax",$this);
   }
-
 
   public function select(){
     $started=$_POST["started"];
