@@ -47,12 +47,15 @@
       <!-- 機能３－－select -->
       <table>
         <tr>
+
           <?php echo form_open("tax/select"); ?>
+          <?php if (isset($_POST["money"])): ?>
+
             <td>
-              <input type="tel" name="started" size="10" maxlength="10" pattern="\d{4}-\d{2}-\d{2}" placeholder="西暦-月-日">
+              <input type="tel" name="started" size="10" maxlength="10" pattern="\d{4}-\d{2}-\d{2}" placeholder="西暦-月-日" value="<?php echo $started ?>">
             </td>
             <td>
-              <input type="number" name="money" placeholder="金額を入力"> 円
+              <input type="number" name="money" placeholder="金額を入力"  value="<?php echo $money; ?>"> 円
             </td>
             <td>
               <input type="submit" name="" value="計算">
@@ -62,7 +65,24 @@
         <tr>
           <td></td>
           <td>
-            <p>ここに税込み金額がでます</p>
+              <?php echo floor($tax_money["tax_money"]) ?>円（税込み）
+              <?php else: ?>
+                <td>
+                  <input type="tel" name="started" size="10" maxlength="10" pattern="\d{4}-\d{2}-\d{2}" placeholder="西暦-月-日">
+                </td>
+                <td>
+                  <input type="number" name="money" placeholder="金額を入力"> 円
+                </td>
+                <td>
+                  <input type="submit" name="" value="計算">
+                </td>
+              </form>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <p>ここに税込み金額がでます</p>
+            <?php endif; ?>
           </td>
         </tr>
       </table>
